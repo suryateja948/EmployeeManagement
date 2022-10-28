@@ -19,6 +19,7 @@ namespace EmployeeManagement.Mappers
                 result.EmployeeId = master.EmployeeId;
                 result.SubjectsId = master.SubjectsId;
                 result.MarksScored = (float)master.MarksScored;
+               
 
             }
             return result;

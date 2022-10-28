@@ -333,7 +333,7 @@ namespace EmployeeManagement.DataAccessProviders
                 {
                     count = 0;
                 }
-                if(count < 3)
+                if(count < 2)
                 {
                     Branch = item.BranchId;
                     count++;

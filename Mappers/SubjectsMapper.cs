@@ -19,8 +19,6 @@ namespace EmployeeManagement.Mappers
                 result.Name = master.Name;
                 result.Code = master.Code;
                 result.MaxMarks = master.MaxMarks;
-                
-
             }
             return result;
         }

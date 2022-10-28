@@ -17,6 +17,7 @@ namespace EmployeeManagement.Mappers
                 result.Id= master.Id;
                 result.BranchId = master.BranchId;
                 result.SubjectsId = master.SubjectsId;
+                
             }
             return result;
         }
