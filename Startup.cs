@@ -31,7 +31,7 @@ namespace EmployeeManagement
             services.Configure<BaseSettings>(Configuration);
             services.AddDbContext<dbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DBConnection")));
             services.AddScoped<IEmployeeDAP, EmployeeDAP>();
-            /*services.AddSingleton<IJsonLogger, JsonLogger>()*/;
+        
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
             //services.Configure<FormOptions>(x =>
             //{
