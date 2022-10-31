@@ -2,7 +2,7 @@ using EmployeeManagement;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace JsonService.DataAccessProviders
+namespace EmployeeManagement.DataAccessProviders
 {
     public class Program
     {
