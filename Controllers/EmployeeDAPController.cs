@@ -254,7 +254,7 @@ namespace EmployeeManagement.Controllers
         }
         [HttpDelete]
         [Route("api/[controller]/DeleteEmployee/{id}")]
-        public async Task<IActionResult> DeleteEmployee([FromBody] int id)
+        public async Task<IActionResult> DeleteEmployee(int id)
         {
             try
             {
@@ -270,7 +270,7 @@ namespace EmployeeManagement.Controllers
 
         [HttpDelete]
         [Route("api/[controller]/DeleteBranch/{id}")]
-        public async Task<IActionResult> DeleteBranch([FromBody] int id)
+        public async Task<IActionResult> DeleteBranch(int id)
         {
             try
             {
@@ -286,7 +286,7 @@ namespace EmployeeManagement.Controllers
 
         [HttpDelete]
         [Route("api/[controller]/DeleteMarks/{id}")]
-        public async Task<IActionResult> DeleteMarks([FromBody] int id)
+        public async Task<IActionResult> DeleteMarks(int id)
         {
             try
             {
@@ -302,7 +302,7 @@ namespace EmployeeManagement.Controllers
 
         [HttpDelete]
         [Route("api/[controller]/DeleteSubjects/{id}")]
-        public async Task<IActionResult> DeleteSubjects([FromBody] int id)
+        public async Task<IActionResult> DeleteSubjects(int id)
         {
             try
             {
@@ -318,7 +318,7 @@ namespace EmployeeManagement.Controllers
 
         [HttpDelete]
         [Route("api/[controller]/DeleteBranchSubjects/{id}")]
-        public async Task<IActionResult> DeleteBranchSubjects([FromBody] int id)
+        public async Task<IActionResult> DeleteBranchSubjects(int id)
         {
             try
             {

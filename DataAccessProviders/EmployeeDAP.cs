@@ -197,9 +197,10 @@ namespace EmployeeManagement.DataAccessProviders
 
         public async Task<ResponseData> DeleteEmployee(int Id)
         {
-            var entity = await _context.Employee.AsNoTracking().SingleOrDefaultAsync(t => t.Id == Id);
+            var entity = await _context.Employee.AsNoTracking().SingleOrDefaultAsync(t => t.Id == Id );
             if (entity != null)
             {
+                
                 await _context.SaveChangesAsync();
                 return new ResponseData(Id, true, "Deleted", 200);
             }
