@@ -200,7 +200,7 @@ namespace EmployeeManagement.DataAccessProviders
             var entity = await _context.Employee.AsNoTracking().SingleOrDefaultAsync(t => t.Id == Id );
             if (entity != null)
             {
-                
+                _context.Employee.Remove(entity);
                 await _context.SaveChangesAsync();
                 return new ResponseData(Id, true, "Deleted", 200);
             }
@@ -209,9 +209,10 @@ namespace EmployeeManagement.DataAccessProviders
 
         public async Task<ResponseData> DeleteBranch(int Id)
         {
-            var entity = await _context.Branch.SingleOrDefaultAsync(t => t.Id == Id );
-            if (entity != null)
+            var branch = await _context.Branch.SingleOrDefaultAsync(t => t.Id == Id );
+            if (branch != null)
             {
+                _context.Branch.Remove(branch);
                 await _context.SaveChangesAsync();
                 return new ResponseData(Id, true, "Deleted", 200);
             }
@@ -222,6 +223,7 @@ namespace EmployeeManagement.DataAccessProviders
             var entity = await _context.Marks.SingleOrDefaultAsync(x => x.Id == Id);
             if (entity != null)
             {
+                _context.Marks.Remove(entity);
                 await _context.SaveChangesAsync();
                 return new ResponseData(Id, true, "Deleted", 200);
             }
@@ -232,6 +234,7 @@ namespace EmployeeManagement.DataAccessProviders
             var entity = await _context.Subjects.SingleOrDefaultAsync(b => b.Id == Id);
             if (entity != null)
             {
+                _context.Subjects.Remove(entity);
                 await _context.SaveChangesAsync();
                 return new ResponseData(Id, true, "Deleted", 200);
             }
@@ -242,6 +245,7 @@ namespace EmployeeManagement.DataAccessProviders
             var entity = await _context.BranchSubjects.SingleOrDefaultAsync(a => a.Id == Id);
             if (entity != null)
             {
+                _context.BranchSubjects.Remove(entity);
                 await _context.SaveChangesAsync();
                 return new ResponseData(Id, true, "Deleted", 200);
             }
