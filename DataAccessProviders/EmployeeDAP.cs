@@ -26,9 +26,9 @@ namespace EmployeeManagement.DataAccessProviders
             model.BranchId = user.BranchId;
             await _context.Employee.AddAsync(model);
             await _context.SaveChangesAsync();
-            return new ResponseData(user.Id, true, "Inserted", 200);
+            return new ResponseData(model.Id, true, "Inserted", 200);
 
-            /*return new ResponseData(user.Id, false, "Insert Failed", 200);*/
+            
         }
 
         public async Task<ResponseData> AddBranch(BranchClass user)
@@ -39,9 +39,9 @@ namespace EmployeeManagement.DataAccessProviders
             model.Code = user.code;
             await _context.Branch.AddAsync(model);
             await _context.SaveChangesAsync();
-            return new ResponseData(user.Id, true, "Inserted", 200);
+            return new ResponseData(model.Id, true, "Inserted", 200);
 
-            /*return new ResponseData(user.Id, false, "Insert Failed", 200);*/
+            
         }
 
         public async Task<ResponseData> AddMarks(MarksClass user)
@@ -53,9 +53,9 @@ namespace EmployeeManagement.DataAccessProviders
             model.MarksScored = user.MarksScored;
             await _context.Marks.AddAsync(model);
             await _context.SaveChangesAsync();
-            return new ResponseData(user.Id, true, "Inserted", 200);
+            return new ResponseData(model.Id, true, "Inserted", 200);
 
-            /*return new ResponseData(user.Id, false, "Insert Failed", 200);*/
+            
         }
 
         public async Task<ResponseData> AddSubjects(SubjectsClass user)
@@ -68,9 +68,9 @@ namespace EmployeeManagement.DataAccessProviders
            
             await _context.Subjects.AddAsync(model);
             await _context.SaveChangesAsync();
-            return new ResponseData(user.Id, true, "Inserted", 200);
+            return new ResponseData(model.Id, true, "Inserted", 200);
 
-            /*return new ResponseData(user.Id, false, "Insert Failed", 200);*/
+            
         }
 
         public async Task<ResponseData>AddBranchSubjects(BranchSubjectsClass user)
@@ -83,7 +83,7 @@ namespace EmployeeManagement.DataAccessProviders
             await _context.SaveChangesAsync();
             return new ResponseData(user.Id, true, "Inserted", 200);
 
-            /*return new ResponseData(user.Id, false, "Insert Failed", 200);*/
+            
         }
 
         public async Task<ResponseData<List<EmployeeClass>>>GetEmployees()
@@ -133,7 +133,8 @@ namespace EmployeeManagement.DataAccessProviders
                 await _context.SaveChangesAsync();
                 return new ResponseData(model.Id, true, "Updated", 200);
             }
-            return new ResponseData(model.Id, false, "Update Failed", 200);
+            /*return new ResponseData(model.Id, false, "Update Failed", 200);*/
+            return null;
         }
 
         public async Task<ResponseData> UpdateBranch(BranchClass model)
@@ -147,7 +148,8 @@ namespace EmployeeManagement.DataAccessProviders
                 await _context.SaveChangesAsync();
                 return new ResponseData(model.Id, true, "Updated", 200);
             }
-            return new ResponseData(model.Id, false, "Update Failed", 200);
+            /*return new ResponseData(model.Id, false, "Update Failed", 200);*/
+            return null;
         }
         public async Task<ResponseData> UpdateMarks(MarksClass model)
         {
@@ -161,7 +163,8 @@ namespace EmployeeManagement.DataAccessProviders
                 await _context.SaveChangesAsync();
                 return new ResponseData(model.Id, true, "Updated", 200);
             }
-            return new ResponseData(model.Id, false, "Update Failed", 200);
+            //return new ResponseData(model.Id, false, "Update Failed", 200);
+            return null;
         }
 
         public async Task<ResponseData> UpdateSubjects(SubjectsClass model)
@@ -178,7 +181,8 @@ namespace EmployeeManagement.DataAccessProviders
                 await _context.SaveChangesAsync();
                 return new ResponseData(model.Id, true, "Updated", 200);
             }
-            return new ResponseData(model.Id, false, "Update Failed", 200);
+            //return new ResponseData(model.Id, false, "Update Failed", 200);
+            return null;
         }
 
         public async Task<ResponseData> UpdateBranchSubjects(BranchSubjectsClass model)
@@ -192,7 +196,8 @@ namespace EmployeeManagement.DataAccessProviders
                 await _context.SaveChangesAsync();
                 return new ResponseData(model.Id, true, "Updated", 200);
             }
-            return new ResponseData(model.Id, false, "Update Failed", 200);
+            //return new ResponseData(model.Id, false, "Update Failed", 200);
+            return null;
         }
 
         public async Task<ResponseData> DeleteEmployee(int Id)
@@ -204,7 +209,8 @@ namespace EmployeeManagement.DataAccessProviders
                 await _context.SaveChangesAsync();
                 return new ResponseData(Id, true, "Deleted", 200);
             }
-            return new ResponseData(Id, false, "Delete Failed", 200);
+            //return new ResponseData(Id, false, "Delete Failed", 200);
+            return null;
         }
 
         public async Task<ResponseData> DeleteBranch(int Id)
@@ -216,7 +222,8 @@ namespace EmployeeManagement.DataAccessProviders
                 await _context.SaveChangesAsync();
                 return new ResponseData(Id, true, "Deleted", 200);
             }
-            return new ResponseData(Id, false, "Delete Failed", 200);
+            //return new ResponseData(Id, false, "Delete Failed", 200);
+            return null;
         }
         public async Task<ResponseData> DeleteMarks(int Id)
         {
@@ -227,7 +234,8 @@ namespace EmployeeManagement.DataAccessProviders
                 await _context.SaveChangesAsync();
                 return new ResponseData(Id, true, "Deleted", 200);
             }
-            return new ResponseData(Id, false, "Delete Failed", 200);
+            //return new ResponseData(Id, false, "Delete Failed", 200);
+            return null;
         }
         public async Task<ResponseData> DeleteSubjects(int Id)
         {
@@ -238,7 +246,8 @@ namespace EmployeeManagement.DataAccessProviders
                 await _context.SaveChangesAsync();
                 return new ResponseData(Id, true, "Deleted", 200);
             }
-            return new ResponseData(Id, false, "Delete Failed", 200);
+            //return new ResponseData(Id, false, "Delete Failed", 200);
+            return null;
         }
         public async Task<ResponseData> DeleteBranchSubjects(int Id)
         {
@@ -249,7 +258,8 @@ namespace EmployeeManagement.DataAccessProviders
                 await _context.SaveChangesAsync();
                 return new ResponseData(Id, true, "Deleted", 200);
             }
-            return new ResponseData(Id, false, "Delete Failed", 200);
+            //return new ResponseData(Id, false, "Delete Failed", 200);
+            return null;
         }
 
         public async Task<ResponseData<List<MarksClass>>> GetMarksBySubjects()
