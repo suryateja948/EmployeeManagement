@@ -18,12 +18,14 @@ namespace EmployeeManagement.DataAccessProviders
         }
         public async Task<ResponseData> AddEmployee(EmployeeClass user)
         {
-            Employee  model = new Employee();
+            Employee  model = new Employee()
+            {
+                Name = user.Name,
+                Email = user.Email,
+                Password = user.Password,
+                BranchId = user.BranchId
+            };
             
-            model.Name = user.Name;
-            model.Email = user.Email;
-            model.Password = user.Password;
-            model.BranchId = user.BranchId;
             await _context.Employee.AddAsync(model);
             await _context.SaveChangesAsync();
             return new ResponseData(model.Id, true, "Inserted", 200);
@@ -33,10 +35,11 @@ namespace EmployeeManagement.DataAccessProviders
 
         public async Task<ResponseData> AddBranch(BranchClass user)
         {
-            Branch model = new Branch();
-            
-            model.Name= user.Name;
-            model.Code = user.code;
+            Branch model = new Branch()
+            {
+                Name = user.Name,
+                Code = user.code
+            };
             await _context.Branch.AddAsync(model);
             await _context.SaveChangesAsync();
             return new ResponseData(model.Id, true, "Inserted", 200);
@@ -46,11 +49,12 @@ namespace EmployeeManagement.DataAccessProviders
 
         public async Task<ResponseData> AddMarks(MarksClass user)
         {
-            Marks model = new Marks();
-            
-            model.EmployeeId = user.EmployeeId;
-            model.SubjectsId = user.SubjectsId;
-            model.MarksScored = user.MarksScored;
+            Marks model = new Marks()
+            {
+                EmployeeId = user.EmployeeId,
+                SubjectsId = user.SubjectsId,
+                MarksScored = user.MarksScored
+            };
             await _context.Marks.AddAsync(model);
             await _context.SaveChangesAsync();
             return new ResponseData(model.Id, true, "Inserted", 200);
@@ -60,12 +64,12 @@ namespace EmployeeManagement.DataAccessProviders
 
         public async Task<ResponseData> AddSubjects(SubjectsClass user)
         {
-            Subjects model = new Subjects();
-            model.Name= user.Name;
-            model.Code= user.Code;
-            model.MaxMarks = user.MaxMarks;
-            
-           
+            Subjects model = new Subjects()
+            {
+                Name = user.Name,
+                Code = user.Code,
+                MaxMarks = user.MaxMarks
+            };
             await _context.Subjects.AddAsync(model);
             await _context.SaveChangesAsync();
             return new ResponseData(model.Id, true, "Inserted", 200);
@@ -75,10 +79,12 @@ namespace EmployeeManagement.DataAccessProviders
 
         public async Task<ResponseData>AddBranchSubjects(BranchSubjectsClass user)
         {
-            BranchSubjects model = new BranchSubjects();
+            BranchSubjects model = new BranchSubjects()
+            {
+                    BranchId = user.BranchId,
+                    SubjectsId = user.SubjectsId
+            };
             
-            model.BranchId = user.BranchId;
-            model.SubjectsId = user.SubjectsId;
             await _context.BranchSubjects.AddAsync(model);
             await _context.SaveChangesAsync();
             return new ResponseData(user.Id, true, "Inserted", 200);
@@ -133,7 +139,7 @@ namespace EmployeeManagement.DataAccessProviders
                 await _context.SaveChangesAsync();
                 return new ResponseData(model.Id, true, "Updated", 200);
             }
-            /*return new ResponseData(model.Id, false, "Update Failed", 200);*/
+            
             return null;
         }
 
@@ -148,7 +154,7 @@ namespace EmployeeManagement.DataAccessProviders
                 await _context.SaveChangesAsync();
                 return new ResponseData(model.Id, true, "Updated", 200);
             }
-            /*return new ResponseData(model.Id, false, "Update Failed", 200);*/
+            
             return null;
         }
         public async Task<ResponseData> UpdateMarks(MarksClass model)
@@ -163,7 +169,7 @@ namespace EmployeeManagement.DataAccessProviders
                 await _context.SaveChangesAsync();
                 return new ResponseData(model.Id, true, "Updated", 200);
             }
-            //return new ResponseData(model.Id, false, "Update Failed", 200);
+            
             return null;
         }
 
@@ -172,16 +178,13 @@ namespace EmployeeManagement.DataAccessProviders
             var Subjects = await _context.Subjects.SingleOrDefaultAsync(r => r.Id == model.Id);
             if (Subjects != null)
             {
-                
                 Subjects.Name = model.Name;
                 Subjects.Code = model.Code;
                 Subjects.MaxMarks = model.MaxMarks;
-                
-
                 await _context.SaveChangesAsync();
                 return new ResponseData(model.Id, true, "Updated", 200);
             }
-            //return new ResponseData(model.Id, false, "Update Failed", 200);
+            
             return null;
         }
 
@@ -196,7 +199,7 @@ namespace EmployeeManagement.DataAccessProviders
                 await _context.SaveChangesAsync();
                 return new ResponseData(model.Id, true, "Updated", 200);
             }
-            //return new ResponseData(model.Id, false, "Update Failed", 200);
+            
             return null;
         }
 
@@ -209,7 +212,7 @@ namespace EmployeeManagement.DataAccessProviders
                 await _context.SaveChangesAsync();
                 return new ResponseData(Id, true, "Deleted", 200);
             }
-            //return new ResponseData(Id, false, "Delete Failed", 200);
+            
             return null;
         }
 
@@ -222,7 +225,7 @@ namespace EmployeeManagement.DataAccessProviders
                 await _context.SaveChangesAsync();
                 return new ResponseData(Id, true, "Deleted", 200);
             }
-            //return new ResponseData(Id, false, "Delete Failed", 200);
+            
             return null;
         }
         public async Task<ResponseData> DeleteMarks(int Id)
@@ -234,7 +237,7 @@ namespace EmployeeManagement.DataAccessProviders
                 await _context.SaveChangesAsync();
                 return new ResponseData(Id, true, "Deleted", 200);
             }
-            //return new ResponseData(Id, false, "Delete Failed", 200);
+            
             return null;
         }
         public async Task<ResponseData> DeleteSubjects(int Id)
@@ -246,7 +249,7 @@ namespace EmployeeManagement.DataAccessProviders
                 await _context.SaveChangesAsync();
                 return new ResponseData(Id, true, "Deleted", 200);
             }
-            //return new ResponseData(Id, false, "Delete Failed", 200);
+            
             return null;
         }
         public async Task<ResponseData> DeleteBranchSubjects(int Id)
@@ -258,7 +261,7 @@ namespace EmployeeManagement.DataAccessProviders
                 await _context.SaveChangesAsync();
                 return new ResponseData(Id, true, "Deleted", 200);
             }
-            //return new ResponseData(Id, false, "Delete Failed", 200);
+            
             return null;
         }
 

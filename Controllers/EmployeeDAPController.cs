@@ -179,8 +179,8 @@ namespace EmployeeManagement.Controllers
         }
 
         [HttpPost]
-        [Route("api/[controller]/UpdateEmployee/{id}")]
-        public async Task<IActionResult> UpdateTenant(int id, [FromBody] EmployeeClass model)
+        [Route("api/[controller]/UpdateEmployee")]
+        public async Task<IActionResult> UpdateEmployee([FromBody] EmployeeClass model)
         {
             try
             { 
@@ -194,8 +194,8 @@ namespace EmployeeManagement.Controllers
         }
 
         [HttpPost]
-        [Route("api/[controller]/UpdateBranch/{id}")]
-        public async Task<IActionResult> UpdateBranch(int id, [FromBody] BranchClass model)
+        [Route("api/[controller]/UpdateBranch")]
+        public async Task<IActionResult> UpdateBranch([FromBody] BranchClass model)
         {
             try
             {
@@ -209,8 +209,8 @@ namespace EmployeeManagement.Controllers
         }
 
         [HttpPost]
-        [Route("api/[controller]/UpdateMarks/{id}")]
-        public async Task<IActionResult> UpdateMarks(int id, [FromBody] MarksClass model)
+        [Route("api/[controller]/UpdateMarks")]
+        public async Task<IActionResult> UpdateMarks([FromBody] MarksClass model)
         {
             try
             {
@@ -224,8 +224,8 @@ namespace EmployeeManagement.Controllers
         }
 
         [HttpPost]
-        [Route("api/[controller]/UpdateSubjects/{id}")]
-        public async Task<IActionResult> UpdateSubjects(int id, [FromBody] SubjectsClass model)
+        [Route("api/[controller]/UpdateSubjects")]
+        public async Task<IActionResult> UpdateSubjects([FromBody] SubjectsClass model)
         {
             try
             {
@@ -239,8 +239,8 @@ namespace EmployeeManagement.Controllers
         }
 
         [HttpPost]
-        [Route("api/[controller]/UpdateBranchSubjects/{id}")]
-        public async Task<IActionResult> UpdateBranchSubjects(int id, [FromBody] BranchSubjectsClass model)
+        [Route("api/[controller]/UpdateBranchSubjects")]
+        public async Task<IActionResult> UpdateBranchSubjects([FromBody] BranchSubjectsClass model)
         {
             try
             {
