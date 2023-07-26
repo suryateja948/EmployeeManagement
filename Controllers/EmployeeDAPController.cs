@@ -11,8 +11,6 @@ namespace EmployeeManagement.Controllers
     public class EmployeeDAPController : ControllerBase
     {
         private IEmployeeDAP _dataAccessProvider;
-
-
         public EmployeeDAPController(IEmployeeDAP dataAccessProvider )
         {
             _dataAccessProvider = dataAccessProvider;
